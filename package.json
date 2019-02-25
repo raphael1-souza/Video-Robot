@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/raphael1-souza/Video-Robot/issues"
   },
-  "homepage": "https://github.com/raphael1-souza/Video-Robot#readme"
+  "homepage": "https://github.com/raphael1-souza/Video-Robot#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  }
 }
