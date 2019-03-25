@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/raphael1-souza/Video-Robot#readme",
   "dependencies": {
+    "algorithmia": "^0.3.10",
     "google-trends-api": "^4.9.0",
-    "readline-sync": "^1.4.9"
+    "readline-sync": "^1.4.9",
+    "sbd": "^1.0.15"
   }
 }

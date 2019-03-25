@@ -1,11 +1,16 @@
 const readline = require ('readline-sync')
 const googleTrends = require('google-trends-api');
-function start(){
+const robots = {
+    text: require('./robots/text.js')
+}
+async function start(){
     const content = {}
     content.searchTerm = askAndReturnSearchTerm()
     // content.test= test(content.searchTerm)
     content.prefix = askAndReturnPrefix(content.searchTerm)
-    console.log(content);
+    await robots.text(content)
+
+    // console.log(content);
     function askAndReturnSearchTerm(){
        const response = readline.question('Type a Wikepedia search term: ')
        return response
@@ -17,6 +22,8 @@ function start(){
         const selectedPrefixText = prefixes[selectedPrefixIndex]
         return selectedPrefixText
     }
+
+    console.log(content);
 
 
 /////////////////Projeto futuro
