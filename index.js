@@ -1,7 +1,6 @@
 const readline = require ('readline-sync')
 const googleTrends = require('google-trends-api');
-
-async function start(){
+function start(){
     const content = {}
     content.searchTerm = askAndReturnSearchTerm()
     // content.test= test(content.searchTerm)
