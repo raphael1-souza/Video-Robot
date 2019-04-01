@@ -5,8 +5,8 @@ const watsonApiKey = require('../credentials/watson-nlu.json').apikey
 
 
 const NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js')
-
-var nlu = new NaturalLanguageUnderstandingV1({
+const state = require('./state.js')
+const nlu = new NaturalLanguageUnderstandingV1({
   iam_apikey:watsonApiKey,
   version: '2018-04-05',
   url: 'https://gateway.watsonplatform.net/natural-language-understanding/api/'
@@ -14,12 +14,16 @@ var nlu = new NaturalLanguageUnderstandingV1({
 
 
 
-async function robot (content) {
+async function robot () {
+    const content = state.load();
     await fetchContentFromWikipedia(content)
     sanitizeContent(content)
     breakContentIntoSentences(content)
     limitMaximumSentences(content)
     await fetchKeywordOfAllSentences(content)
+
+    state.save(content)
+
     async function fetchContentFromWikipedia(content){
         const algorithmiaAuthenticated = algorithmia(algorithmiaApiKey)
         const wikipediaAlgorithm = algorithmiaAuthenticated.algo("web/WikipediaParser/0.1.2?timeout=300")
