@@ -20,6 +20,7 @@
     "algorithmia": "^0.3.10",
     "google-trends-api": "^4.9.0",
     "googleapis": "^39.1.0",
+    "image-downloader": "^3.4.2",
     "readline-sync": "^1.4.9",
     "sbd": "^1.0.15",
     "watson-developer-cloud": "^3.18.3"
